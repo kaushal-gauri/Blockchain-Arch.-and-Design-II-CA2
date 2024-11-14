@@ -8,8 +8,10 @@ CA2
 
 Submitted By:
 Gauri Sharma
+
 Registration No.:
-  12108982
+12108982
+
 Roll No.:
 21
 
@@ -23,7 +25,9 @@ PHAGWARA, PUNJAB
 
 
 Question No. Assigned: 3
+
 Original Code :
+
 function addUsers(address[] calldata admins, address[] calldata regularUsers, bytes calldata signature) external {
     if (!isAdmin[msg.sender]) {
         bytes32 hash = keccak256(abi.encodePacked(admins, regularUsers));
@@ -37,9 +41,13 @@ function addUsers(address[] calldata admins, address[] calldata regularUsers, by
         isRegularUser[regularUsers[i]] = true;
     }
 }
+
 Identify the issues in the smart contract and fix the issue that you identify. Explain the core reason why the issue happens.
+
 Answer:- 
+
 Original Code and Identified Problems 
+
 1.	Lack of Input Validation
 
 for (uint256 i = 0; i < admins.length; i++) {
@@ -56,7 +64,6 @@ Issue:
 2.	 Replay Attack Vulnerability  
   
 function addUsers(address[] calldata admins, address[] calldata regularUsers, bytes calldata signature) external {
-
 bytes32 hash = keccak256(abi.encodePacked(admins, regularUsers));
 address signer = hash.toEthSignedMessageHash().recover(signature);
 
