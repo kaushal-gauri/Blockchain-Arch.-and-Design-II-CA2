@@ -121,6 +121,7 @@ Solution:
     
 Solution:
 •	Checks that the signer (derived from the signature) is indeed an admin, which confirms authorization, if a regular user is adding another user it only allows the ones that are validated by the admin.
+ 
     4. Update Mappings in a Single Loop
     
     for (uint256 i = 0; i < admins.length; i++) {
